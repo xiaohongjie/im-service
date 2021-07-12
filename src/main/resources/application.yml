@@ -1,0 +1,29 @@
+#server.port= 8081
+#spring.application.name=nacos-config
+#spring.cloud.nacos.config.enabled=true
+#spring.cloud.nacos.config.server-addr=127.0.0.1:8848
+
+#spring:
+#  application:
+#    name: im-service
+#  cloud:
+#    nacos:
+#      config:
+#        server-addr: 192.168.31.188:8848
+#        prefix: im-service
+#        file-extension: yml
+#  profiles:
+#    active: dev
+server:
+  port: 8081
+
+#mongo配置
+data:
+  mongodb:
+    database: test
+    uri: mongodb://127.0.0.1:27017
+
+commonurl:
+  imServiceUrl: http://39.156.1.74:8088  #imService测试环境地址及端口
+  imAppKey: e0b8141eb04f4e46abf66fbd3e0a8ae3 #im提供appkey
+  thirdPartyUrl: http://127.0.0.1:8081       #第三方测试环境地址以及端口
