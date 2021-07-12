@@ -246,7 +246,7 @@ public class ApiController {
     @PostMapping("/im/msgResultAsync")
     public ResponseBean msgResultAsync(@Valid @RequestBody MsgResultAsyncDto msgResultAsyncDto) {
         UUID logId = UUID.randomUUID();
-        log.info("msgResultAsyncReq = [{}] {}", msgResultAsyncDto, logId);//测试提交
+        log.info("msgResultAsyncReq = [{}] {}", msgResultAsyncDto, logId);
         BaseResponse responseBean = apiService.msgResultAsync(msgResultAsyncDto);
         return new ResponseBean(Integer.parseInt(responseBean.getCode()), responseBean.getMsg(),"");
     }
