@@ -449,6 +449,7 @@ public class ApiServiceImpl implements IApiService {
             result = HttpClientUtil.doPost(commonProperties.getImServiceUrl() + "/api/im/singleChat", paramJson.toString());
             //返回数据入库
             responseSave(logMessageInfo, result, IMSRVICEURL);
+            //解析返回数据
             JSONObject jsonResult = JSONObject.parseObject(result);
             if ("200".equals(jsonResult.getString("code"))) {
                 ChatInfo chatInfo = new ChatInfo();

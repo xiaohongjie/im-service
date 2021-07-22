@@ -20,14 +20,14 @@ import java.util.UUID;
 
 
 /**
- * UserController
+ * ApiController
  *
  * @author xhj
  * @date 2018/8/29 15:45
  */
 @Slf4j
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/im")
 @PropertySource("config.properties")
 public class ApiController {
 
@@ -50,7 +50,7 @@ public class ApiController {
     /**
      * 申请超管用户
      */
-    @PostMapping("/im/applyAdmin")
+    @PostMapping("/applyAdmin")
     public ResponseBean applyAdmin(@Valid @RequestBody ApplyAdminDto applyAdminDto) {
         UUID logId = UUID.randomUUID();
         log.info("applyAdminReq = [{}] {}", applyAdminDto, logId);
@@ -62,7 +62,7 @@ public class ApiController {
     /**
      * 创建群组
      */
-    @PostMapping("/im/createGroup")
+    @PostMapping("/createGroup")
     public ResponseBean createGroup(@Valid @RequestBody CreateGroupDto createGroupDto) {
         UUID logId = UUID.randomUUID();
         log.info("createGroupReq = [{}] {}", createGroupDto, logId);
@@ -73,7 +73,7 @@ public class ApiController {
     /**
      * 解散群组
      */
-    @PostMapping("/im/disbandGroup")
+    @PostMapping("/disbandGroup")
     public ResponseBean disbandGroup(@Valid @RequestBody DisbandGroupDto disbandGroupDto) {
         UUID logId = UUID.randomUUID();
         log.info("disbandGroupReq = [{}] {}", disbandGroupDto, logId);
@@ -84,7 +84,7 @@ public class ApiController {
     /**
      * 群禁言以及群解禁—批量
      */
-    @PostMapping("/im/groupForbiddenWords")
+    @PostMapping("/groupForbiddenWords")
     public ResponseBean groupForbiddenWords(@Valid @RequestBody GroupStatusDto groupStatusDto) {
         UUID logId = UUID.randomUUID();
         log.info("groupForbiddenWordsReq = [{}] {}", groupStatusDto, logId);
@@ -95,7 +95,7 @@ public class ApiController {
     /**
      * 踢出群组
      */
-    @PostMapping("/im/kickOutGroup")
+    @PostMapping("/kickOutGroup")
     public ResponseBean kickOutGroup(@Valid @RequestBody KickOutGroupDto kickOutGroupDto) {
         UUID logId = UUID.randomUUID();
         log.info("kickOutGroupReq = [{}] {}", kickOutGroupDto, logId);
@@ -106,7 +106,7 @@ public class ApiController {
     /**
      * 群聊
      */
-    @PostMapping("/im/groupChat")
+    @PostMapping("/groupChat")
     public ResponseBean groupChat(@Valid @RequestBody GroupChatDto groupChatDto) {
         UUID logId = UUID.randomUUID();
         log.info("groupChatReq = [{}] {}", groupChatDto, logId);
@@ -117,7 +117,7 @@ public class ApiController {
     /**
      * IM导入用户
      */
-    @PostMapping("/im/importUser")
+    @PostMapping("/importUser")
     public ResponseBean importUser(@Valid @RequestBody ImportUserDto importUserDto) {
         UUID logId = UUID.randomUUID();
         log.info("importUserReq = [{}] {}", importUserDto, logId);
@@ -128,7 +128,7 @@ public class ApiController {
     /**
      * IM删除用户
      */
-    @PostMapping("/im/deleteUser")
+    @PostMapping("/deleteUser")
     public ResponseBean deleteUser(@Valid @RequestBody DelectUserDto delectUserDto) {
         UUID logId = UUID.randomUUID();
         log.info("deleteUserReq = [{}] {}", delectUserDto, logId);
@@ -139,7 +139,7 @@ public class ApiController {
     /**
      * 私聊
      */
-    @PostMapping("/im/singleChat")
+    @PostMapping("/singleChat")
     public ResponseBean singleChat(@Valid @RequestBody SingleChatDto singleChatDto) {
         UUID logId = UUID.randomUUID();
         log.info("singleChatReq = [{}] {}", singleChatDto, logId);
@@ -150,7 +150,7 @@ public class ApiController {
     /**
      * 加入群组
      */
-    @PostMapping("/im/joinGroup")
+    @PostMapping("/joinGroup")
     public ResponseBean joinGroup(@Valid @RequestBody JoinGroupDto joinGroupDto) {
         UUID logId = UUID.randomUUID();
         log.info("joinGroupReq = [{}] {}", joinGroupDto, logId);
@@ -186,7 +186,7 @@ public class ApiController {
     /**
      * 单日用户统计信息
      */
-    @PostMapping("/im/user/dailyStatistics")
+    @PostMapping("/dailyStatistics")
     public ResponseBean dailyStatistics(@Valid @RequestBody DailyStatisticsDto dailyStatisticsDto) {
         UUID logId = UUID.randomUUID();
         log.info("dailyStatisticsReq = [{}] {}", dailyStatisticsDto, logId);
@@ -197,7 +197,7 @@ public class ApiController {
     /**
      * 用户统计信息
      */
-    @PostMapping("/im/user/statistics")
+    @PostMapping("/statistics")
     public ResponseBean statistics(@Valid @RequestBody StatisticsDto statisticsDto) {
         UUID logId = UUID.randomUUID();
         log.info("statisticsReq = [{}] {}", statisticsDto, logId);
@@ -208,7 +208,7 @@ public class ApiController {
     /**
      * 聊天室信息查询
      */
-    @PostMapping("/im/chatroom/info")
+    @PostMapping("/info")
     public ResponseBean info(@Valid @RequestBody ChatRoomInfoDto chatRoomInfoDto) {
         UUID logId = UUID.randomUUID();
         log.info("infoReq = [{}] {}", chatRoomInfoDto, logId);
@@ -219,7 +219,7 @@ public class ApiController {
     /**
      * 聊天室内用户信息查询
      */
-    @PostMapping("/im/chatroom/user")
+    @PostMapping("/user")
     public ResponseBean user(@Valid @RequestBody ChatUserInfoDto chatUserInfoDto) {
         UUID logId = UUID.randomUUID();
         log.info("userReq = [{}] {}", chatUserInfoDto, logId);
@@ -231,7 +231,7 @@ public class ApiController {
     /**
      * 群组历史聊天消息、群名称与群id、人员账号与IMID映射关系导出
      */
-    @PostMapping("/im/msgExport")
+    @PostMapping("/msgExport")
     public ResponseBean msgExport(@Valid @RequestBody MsgExportDto msgExportDto) {
         UUID logId = UUID.randomUUID();
         log.info("msgExportReq = [{}] {}", msgExportDto, logId);
@@ -243,7 +243,7 @@ public class ApiController {
     /**
      * 文件名称异步回调接口（1.17的回调结果）
      */
-    @PostMapping("/im/msgResultAsync")
+    @PostMapping("/msgResultAsync")
     public ResponseBean msgResultAsync(@Valid @RequestBody MsgResultAsyncDto msgResultAsyncDto) {
         UUID logId = UUID.randomUUID();
         log.info("msgResultAsyncReq = [{}] {}", msgResultAsyncDto, logId);

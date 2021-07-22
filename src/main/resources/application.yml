@@ -17,11 +17,12 @@
 server:
   port: 8081
 
+Spring:
 #mongo配置
-data:
+ data:
   mongodb:
-    database: test
-    uri: mongodb://127.0.0.1:27017
+    database: im-service
+    uri: mongodb://10.186.50.156:27017
 
 commonurl:
   imServiceUrl: http://39.156.1.74:8088  #imService测试环境地址及端口
