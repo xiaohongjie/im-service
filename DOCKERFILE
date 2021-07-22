@@ -1,0 +1,20 @@
+FROM openjdk:8-jre-slim
+MAINTAINER xhj
+
+ENV PARAMS=""
+
+ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS \
+    JHIPSTER_SLEEP=5 \
+    SPRING_PROFILE_ACTIVE=test \
+    JAVA_OPTS=""
+
+ARG JAR_FILE
+
+ENV TZ=PRC
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+ADD ${JAR_FILE} /app.jar
+
+CMD echo "The application will start in ${JHIPSTER_SLEEP}s..." && \
+    sleep ${JHIPSTER_SLEEP} && \
+    java ${JAVA_OPTS} -Dfile.encoding=UTF-8 -Djava.security.egd=file:/dev/./urandom -jar /app.jar --spring.profiles.active=${SPRING_PROFILE_ACTIVE} $PARAMS
